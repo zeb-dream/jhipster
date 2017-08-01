@@ -5,6 +5,7 @@
 # Property used on app startup to check the config server status
 configserver:
     name: JHipster Registry config server
+    # 填写git根目录的url
     status: https://github.com/zeb-dream/jhipster
 
 # Default JWT secret token (to be changed in production!)
