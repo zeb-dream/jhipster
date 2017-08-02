@@ -1,6 +1,6 @@
 info: m001_entrance
 server:
-  port: 8080
+  port: 8081
 
 eureka:
     instance:
