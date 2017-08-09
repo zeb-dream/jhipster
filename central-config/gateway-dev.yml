@@ -162,7 +162,7 @@ jhipster:
 # https://jhipster.github.io/common-application-properties/
 # ===================================================================
 M002:
-    m002url: http://localhost:10002
+    m002url: http://m002_authority
 ServerUrl:
     gatewayUrl: http://localhost:19998
 
