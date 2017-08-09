@@ -148,6 +148,6 @@ jhipster:
 # ===================================================================
 
 M002:
-    m002url: http://M002_AUTHORITY
+    m002url: http://m002_authority
     
 application:
