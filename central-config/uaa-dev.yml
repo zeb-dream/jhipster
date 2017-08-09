@@ -16,8 +16,14 @@
 eureka:
     instance:
         prefer-ip-address: true
+#        ip-address: localhost
     client:
-        service-url:
+        enabled: true
+        healthcheck:
+            enabled: true
+        registerWithEureka: true
+        fetchRegistry: true
+        serviceUrl:
             defaultZone: http://admin:${jhipster.registry.password}@192.168.1.20:18761/eureka/
 
 spring:
@@ -64,12 +70,7 @@ spring:
         cache-seconds: 1
     thymeleaf:
         cache: false
-    zipkin: # Use the "zipkin" Maven profile to have the Spring Cloud Zipkin dependencies
-        base-url: http://localhost:9411
-        enabled: false
-        locator:
-            discovery:
-                enabled: true
+    
 
 liquibase:
     contexts: dev
@@ -92,7 +93,7 @@ liquibase:
 #        keyAlias: uaa
 # ===================================================================
 server:
-    port: 9999
+    port: 19999
 
 # ===================================================================
 # JHipster specific properties
@@ -107,21 +108,16 @@ jhipster:
         hazelcast: # Hazelcast distributed cache
             time-to-live-seconds: 3600
             backup-count: 1
-    # CORS is only enabled by default with the "dev" profile, so BrowserSync can access the API
-    cors:
-        allowed-origins: "*"
-        allowed-methods: GET, PUT, POST, DELETE, OPTIONS
-        allowed-headers: "*"
-        exposed-headers:
-        allow-credentials: true
-        max-age: 1800
     security:
         client-authorization:
             client-id: internal
             client-secret: internal
+        authentication:
+            jwt:
+                secret: bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE0OTMyOTk4MzcsInVzZXJfbmFtZSI6ImFkbWluIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9BRE1JTiIsIlJPTEVfVVNFUiJdLCJqdGkiOiI0OTlkZTA4OC1mMjI1LTRkNzUtYjg2ZC02YjVjMWQ2ODlhNTgiLCJjbGllbnRfaWQiOiJ3ZWJfYXBwIiwic2NvcGUiOlsib3BlbmlkIl19.P0wKhU_xY2gyle8asqTavTzm7wFJz_od63SQ9bMDa3AzcMFyVgpxSaR-ltaH0q6YnYQgRkQJCmFX2Lw_seoUNduETqLrciKxlPhyO1T06XW9dP2guypNrSSZd25Ecc9VKHIssG2Fwmsu8wLVfvySu-DdHWKplV0WNjG8-wRwPv7A6IXm-9z564MI10TaCt3OYvKVUVJ-63iOKLTZvXKh1x6GwWa9qlbG7ZNaaJ-7opJdt_ETqjAcV1M6Tw_Su-EuWR2sjRZbxbgaHEQojglBqnFjw8rpYJW2E2yLcJH5QTa0CTdtWM7Q-wxl4k2mFouE43n0Uk6Brn0e_X7tLDiWUA
     mail: # specific JHipster mail property, for standard properties see MailProperties
         from: uaa@localhost
-        base-url: http://127.0.0.1:9999
+        base-url: http://127.0.0.1:19999
     metrics: # DropWizard Metrics configuration, used by MetricsConfiguration
         jmx.enabled: true
         graphite: # Use the "graphite" Maven profile to have the Graphite dependencies
@@ -134,7 +130,7 @@ jhipster:
             endpoint: /prometheusMetrics
         logs: # Reports Dropwizard metrics in the logs
             enabled: false
-            report-frequency: 60 # in seconds
+            reportFrequency: 60 # in seconds
     logging:
         logstash: # Forward logs to logstash over a socket, used by LoggingConfiguration
             enabled: false
@@ -151,4 +147,7 @@ jhipster:
 # https://jhipster.github.io/common-application-properties/
 # ===================================================================
 
+M002:
+    m002url: http://localhost:19998/m002_authority
+    
 application:
