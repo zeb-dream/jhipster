@@ -147,6 +147,18 @@ jhipster:
 # https://jhipster.github.io/common-application-properties/
 # ===================================================================
 
+security:
+  oauth2:
+    resource:
+      token-info-uri: http://localhost:19999/oauth/check_token
+    client:
+          client-id: internal # OAuth\u5BA2\u6237\u7AEFid\u3002OAuth\u63D0\u4F9B\u7AEF\u4F9D\u8D56\u8FD9\u4E2Aid\u6765\u8BC6\u522B\u5BA2\u6237\u7AEF\u3002
+          client-secret: internal # \u5BA2\u6237\u7AEF\u7684\u79C1\u5BC6\u4FE1\u606F\u3002
+          user-authorization-uri: http://localhost:19999/oauth/authorize # \u7528\u6237\u8BBF\u95EE\u8D44\u6E90\u9700\u8981\u8EAB\u4EFD\u9A8C\u8BC1\u65F6\u8DF3\u8F6C\u9875\u9762\u7684URI\u3002 \u6CE8\u610F\u8FD9\u4E2A\u5B57\u6BB5\u4E0D\u662F\u5FC5\u586B\u7684\uFF0C\u5B83\u4F9D\u8D56\u4E8E\u88AB\u652F\u6301\u7684OAuth 2\u7684\u914D\u7F6E\u6587\u4EF6\u7C7B\u578B\u3002
+          access-token-uri: http://localhost:19999/oauth/token # \u63D0\u4F9B\u8BBF\u95EE\u53E3\u4EE4\u7684OAuth\u63D0\u4F9B\u8005\u7EC8\u7AEF\u7684\u7EDF\u4E00\u8D44\u6E90\u6807\u8BC6\u7B26\uFF08URI\uFF09\u3002
+          grant-type: client_credentials # \u4EE5\u9017\u53F7\u5206\u9694\u7684\u5B57\u7B26\u4E32\u5217\u8868\uFF0C\u6807\u8BC6\u53EF\u8BBF\u95EE\u8D44\u6E90\u7684\u8303\u56F4\u3002\u9ED8\u8BA4\u60C5\u51B5\u4E0B\uFF0C\u8BE5\u503C\u4E3A\u7A7A\u3002
+          token_key: http://localhost:19999/oauth/token_key
+
 M002:
     m002url: http://m002_authority
 UAA:
