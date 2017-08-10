@@ -16,7 +16,7 @@
 eureka:
     instance:
         prefer-ip-address: true
-        ip-address: localhost
+#        ip-address: localhost
     client:
         enabled: true
         healthcheck:
