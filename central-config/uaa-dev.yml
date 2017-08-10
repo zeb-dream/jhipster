@@ -159,8 +159,8 @@ security:
           grant-type: client_credentials # \u4EE5\u9017\u53F7\u5206\u9694\u7684\u5B57\u7B26\u4E32\u5217\u8868\uFF0C\u6807\u8BC6\u53EF\u8BBF\u95EE\u8D44\u6E90\u7684\u8303\u56F4\u3002\u9ED8\u8BA4\u60C5\u51B5\u4E0B\uFF0C\u8BE5\u503C\u4E3A\u7A7A\u3002
           token_key: http://localhost:19999/oauth/token_key
 
-M002:
-    m002url: http://localhost:19998
+GATEWAY:
+    gatewayUrl: http://localhost:19998
 UAA:
     uaaUrl: http://localhost:19999
 
