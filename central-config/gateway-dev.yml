@@ -175,7 +175,7 @@ security:
           token_key: http://localhost:19999/oauth/token_key
 
 M002:
-    m002url: http://m002_authority
+    eureka-id: m002_authority
 ServerUrl:
     gatewayUrl: http://localhost:19998
 
