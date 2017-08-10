@@ -1,6 +1,6 @@
 info: m001_entrance
 server:
-  port: 8081
+  port: 8080
 
 eureka:
     instance:
@@ -40,21 +40,20 @@ spring:
         database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
         database: MYSQL
         show-sql: true
-
+     mvc:
+        view:
+          prefix: /WEB-INF/jsp/
+          suffix: .jsp
         
-    security:
-      oauth2:
-        resource:
-          token-info-uri: http://localhost:19998/uaa/oauth/check_token
-        client:
-              client-id: internal # OAuth客户端id。OAuth提供端依赖这个id来识别客户端。
-              client-secret: internal # 客户端的私密信息。
-              user-authorization-uri: http://localhost:19998/uaa/oauth/authorize # 用户访问资源需要身份验证时跳转页面的URI。 注意这个字段不是必填的，它依赖于被支持的OAuth2的配置文件类型。
-              access-token-uri: http://localhost:19998/uaa/oauth/token # 提供访问口令的OAuth提供者终端的统一资源标识符（URI）。
-              grant-type: client_credentials # 以逗号分隔的字符串列表，标识可访问资源的范围。默认情况下，该值为空。
-              token_key: http://localhost:19998/uaa/oauth/token_key
+security:
+  oauth2:
+    resource:
+      token-info-uri: http://localhost:19998/uaa/oauth/check_token
+    client:
+          client-id: internal # OAuth客户端id。OAuth提供端依赖这个id来识别客户端。
+          client-secret: internal # 客户端的私密信息。
+          user-authorization-uri: http://localhost:19998/uaa/oauth/authorize # 用户访问资源需要身份验证时跳转页面的URI。 注意这个字段不是必填的，它依赖于被支持的OAuth 2的配置文件类型。
+          access-token-uri: http://localhost:19998/uaa/oauth/token # 提供访问口令的OAuth提供者终端的统一资源标识符（URI）。
+          grant-type: client_credentials # 以逗号分隔的字符串列表，标识可访问资源的范围。默认情况下，该值为空。
+          token_key: http://localhost:19998/uaa/oauth/token_key
    
-    mvc:
-      view:
-        prefix: /WEB-INF/jsp/
-        suffix: .jsp
